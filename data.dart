@@ -2,10 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 
 abstract class Data {
-  Map<String, dynamic> _data;
+  Map<String, dynamic> _data= {};
   final List<String> _fields = [];
-
-  Data(this._data);
 
   void load(String fileName) {
     final file = File(fileName);
