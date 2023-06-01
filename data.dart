@@ -5,13 +5,13 @@ abstract class Data {
   Map<String, dynamic> _data= {};
   final List<String> _fields = [];
 
-  void load(String fileName) {
-    final file = File(fileName);
+  void load(String arquivo) {
+    final file = File(arquivo);
     data = file.readAsStringSync();
   }
 
-  void save(String fileName) {
-    final file = File(fileName);
+  void save(String arquivo) {
+    final file = File(arquivo);
     file.createSync();
     file.writeAsStringSync(data);
   }
