@@ -1,4 +1,4 @@
-import 'dart:convert';
+
 import 'dart:io';
 
 abstract class Data {
@@ -7,15 +7,13 @@ abstract class Data {
 
   void load(String fileName) {
     final file = File(fileName);
-    final jsonString = file.readAsStringSync();
-    _data = jsonDecode(jsonString);
+    data = file.readAsStringSync();
   }
 
   void save(String fileName) {
-    final jsonString = jsonEncode(_data);
     final file = File(fileName);
     file.createSync();
-    file.writeAsStringSync(jsonString);
+    file.writeAsStringSync(data);
   }
 
   void clear() {
@@ -26,9 +24,7 @@ abstract class Data {
 
   bool get hasData => _data.isNotEmpty;
 
-  set data(Map<String, dynamic> n) {
-    _data = n;
-  }
+  set data(String string);
 
-   Map<String, dynamic> get data => _data;
+  String get data;
 }
