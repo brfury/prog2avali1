@@ -24,7 +24,7 @@ abstract class Data {
 
   bool get hasData => _data.isNotEmpty;
 
-  set data(String string);
+  set data(String n);
 
   String get data;
 }
